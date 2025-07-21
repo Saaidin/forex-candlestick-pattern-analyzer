@@ -1,0 +1,5 @@
+{
+  "name": "Forex Candlestick Pattern Analyzer",
+  "description": "An educational tool that uses AI to provide detailed explanations of forex candlestick patterns. Select a pattern to see its visual representation, a basic description, and an in-depth analysis from Gemini.",
+  "requestFramePermissions": []
+}
