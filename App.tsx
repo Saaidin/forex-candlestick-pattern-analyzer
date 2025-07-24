@@ -113,7 +113,11 @@ export default function App() {
             </button>
             <button
               onClick={() => onToggleFavoritePattern(pattern.name)}
-              className="mt-1 text-yellow-400 hover:text-yellow-300 text-center text-sm sm:text-base p-1"
+              className={`mt-1 text-center text-sm sm:text-base p-1 transition-colors duration-200 ${
+                isPatternFavorited(pattern.name) 
+                  ? 'text-red-400 hover:text-red-300' 
+                  : 'text-yellow-400 hover:text-yellow-300'
+              }`}
               title={isPatternFavorited(pattern.name) ? "Remove from Favorites" : "Add to Favorites"}
               aria-label="Toggle Favorite"
             >
@@ -149,7 +153,7 @@ export default function App() {
     const favoriteEntries = Object.values(favoritesByPattern);
     
     return (
-      <section className="bg-slate-800/50 p-3 sm:p-4 rounded-lg border border-slate-700 h-64 sm:h-80 lg:h-96 xl:h-[500px] 2xl:h-[600px] overflow-y-auto">
+      <section className="bg-slate-800/50 p-3 sm:p-4 rounded-lg border border-slate-700 min-h-[320px] h-[350px] sm:h-96 md:h-[450px] lg:h-[500px] xl:h-[600px] overflow-y-auto">
         <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">Favorites</h2>
         {favoriteEntries.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-24 sm:h-32 text-slate-400 text-center">
@@ -194,7 +198,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={() => onToggleFavoritePattern(pattern.name)}
-                  className="text-yellow-400 hover:text-yellow-300 text-base sm:text-lg p-1"
+                  className="text-red-400 hover:text-red-300 text-base sm:text-lg p-1 transition-colors duration-200"
                   title="Remove from Favorites"
                   aria-label="Remove from Favorites"
                 >
@@ -297,8 +301,8 @@ export default function App() {
         </div>
       </div>
       <main className="flex flex-col gap-4 sm:gap-6 flex-grow min-h-0">
-        <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
-          <div className="w-full lg:w-80 lg:flex-shrink-0">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
+          <div className="w-full md:w-80 md:flex-shrink-0">
             <FavoritePatterns
               patterns={CANDLESTICK_PATTERNS}
               selectedPattern={selectedPattern}
@@ -307,7 +311,7 @@ export default function App() {
               onToggleFavoritePattern={toggleFavoritePattern}
             />
           </div>
-          <div className="flex-1 h-64 sm:h-80 md:h-96 lg:h-[500px] xl:h-[600px] bg-slate-800/50 rounded-lg border border-slate-700 overflow-hidden">
+          <div className="flex-1 min-h-[320px] h-[350px] sm:h-96 md:h-[450px] lg:h-[500px] xl:h-[600px] bg-slate-800/50 rounded-lg border border-slate-700 relative">
             <TradingViewWidget 
               symbol={currencyOptions.find(opt => opt.value === currentCurrency)?.symbol || 'FX:EURUSD'}
               onSymbolChange={setCurrentCurrency} 
