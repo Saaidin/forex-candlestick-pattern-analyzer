@@ -77,7 +77,7 @@ export default function App() {
     onToggleFavoritePattern: (patternName: string) => void;
     currentCurrency: string;
   }> = ({ patterns, selectedPattern, onSelectPattern, isPatternFavorited, onToggleFavoritePattern, currentCurrency }) => (
-    <section className="bg-slate-800/50 p-3 sm:p-4 rounded-lg border border-slate-700 max-h-64 sm:max-h-80 overflow-y-auto">
+    <section className="bg-slate-800/50 p-3 sm:p-4 rounded-lg border border-slate-700 min-h-[600px] max-h-[800px] sm:min-h-[700px] sm:max-h-[900px] md:min-h-[800px] md:max-h-[1000px] overflow-y-auto">
       <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4">
         <span className="block sm:hidden">Patterns - {currentCurrency}</span>
         <span className="hidden sm:block">Candlestick Patterns - {currentCurrency}</span>

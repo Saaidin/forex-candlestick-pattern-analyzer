@@ -134,23 +134,23 @@ export const CANDLESTICK_PATTERNS: CandlestickPattern[] = [
 
   // Two Candle Patterns
   {
-    name: 'Bullish Engulfing',
-    type: PatternType.BULLISH,
-    trend: Trend.REVERSAL,
-    description: 'A bullish reversal pattern where a large green candle completely engulfs the previous red candle.',
-    candles: [
-      { open: 60, high: 62, low: 50, close: 52 },
-      { open: 48, high: 80, low: 46, close: 78 },
-    ],
-  },
-  {
     name: 'Bearish Engulfing',
     type: PatternType.BEARISH,
     trend: Trend.REVERSAL,
-    description: 'A bearish reversal pattern where a large red candle completely engulfs the previous green candle.',
+    description: 'A bearish reversal pattern where a large red candle completely engulfs the previous small green candle.',
     candles: [
-      { open: 52, high: 62, low: 50, close: 60 },
-      { open: 78, high: 80, low: 46, close: 48 },
+      { open: 45, high: 65, low: 43, close: 62 },
+      { open: 70, high: 72, low: 25, close: 28 },
+    ],
+  },
+  {
+    name: 'Bullish Engulfing',
+    type: PatternType.BULLISH,
+    trend: Trend.REVERSAL,
+    description: 'A bullish reversal pattern where a large green candle completely engulfs the previous small red candle.',
+    candles: [
+      { open: 55, high: 58, low: 40, close: 42 },
+      { open: 38, high: 75, low: 35, close: 72 },
     ],
   },
   {
@@ -436,6 +436,26 @@ export const CANDLESTICK_PATTERNS: CandlestickPattern[] = [
     ],
   },
   {
+    name: 'Bearish Tweezers',
+    type: PatternType.BEARISH,
+    trend: Trend.REVERSAL,
+    description: 'A bearish reversal pattern with two candles having similar highs after an uptrend, indicating resistance.',
+    candles: [
+      { open: 45, high: 80, low: 43, close: 75 },
+      { open: 70, high: 80, low: 35, close: 40 },
+    ],
+  },
+  {
+    name: 'Bullish Tweezers',
+    type: PatternType.BULLISH,
+    trend: Trend.REVERSAL,
+    description: 'A bullish reversal pattern with two candles having similar lows after a downtrend, indicating support.',
+    candles: [
+      { open: 60, high: 65, low: 20, close: 25 },
+      { open: 30, high: 70, low: 20, close: 65 },
+    ],
+  },
+  {
     name: 'Tweezers Bottom',
     type: PatternType.BULLISH,
     trend: Trend.REVERSAL,
@@ -453,6 +473,16 @@ export const CANDLESTICK_PATTERNS: CandlestickPattern[] = [
     candles: [
       { open: 25, high: 80, low: 20, close: 75 },
       { open: 70, high: 80, low: 35, close: 40 },
+    ],
+  },
+  {
+    name: 'Spinning Tops',
+    type: PatternType.NEUTRAL,
+    trend: Trend.INDECISION,
+    description: 'A pattern with small real bodies and long wicks on both sides, indicating market indecision and potential reversal.',
+    candles: [
+      { open: 48, high: 75, low: 25, close: 52 },
+      { open: 52, high: 75, low: 25, close: 48 },
     ],
   },
 
